@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import MainLayout from './layout/MainLayout';
 
 function App() {
   return (
     <>
       <div className="d-flex flex-column min-vh-100">
-        HEADER
+        <MainLayout />
         <main className="container flex-grow-1 d-flex flex-column">
           CONTENT
         </main>

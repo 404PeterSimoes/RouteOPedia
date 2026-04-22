@@ -9,7 +9,7 @@ function ProductLayout() {
           <p>Browse our complete product catalog</p>
 
           <nav className="mb-3 border rounded">
-            <div className="p3">
+            <div className="p-3">
               <div className="d-flex gap-2 flex-wrap">
                 <NavLink to="/products" end className="btn btn-outline-success">
                   All Products

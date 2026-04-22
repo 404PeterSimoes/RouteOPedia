@@ -1,8 +1,12 @@
+import ProductList from '../ProductList';
+
 function Electronics() {
   return (
-    <div>
-      <h1>Electronics</h1>
-    </div>
+    <ProductList
+      filterType="electronics"
+      title="Electronics"
+      description="Complete product catalog:"
+    />
   );
 }
 

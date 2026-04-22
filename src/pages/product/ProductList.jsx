@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
 import { allProducts } from '../../data/products';
 
-function ProductList() {
+function ProductList({ filterType, title, description }) {
+  const getFilteredProducts = () => {
+    if (filterType == 'all') {
+      return allProducts;
+    }
+    return allProducts.filter((p) => p.category == filterType);
+  };
+
   return (
     <div className="py-2">
-      <h2>All Products</h2>
-      <p>Browse our complete product catalog</p>
+      <h2>{title}</h2>
+      <p>{description}</p>
       <div className="mt-3">
-        {allProducts.map((product) => (
+        {getFilteredProducts().map((product) => (
           <div key={product.id} className="border rounded p-3 mb-3">
             <h3>{product.name}</h3>
             <p>Price: ${product.price}</p>

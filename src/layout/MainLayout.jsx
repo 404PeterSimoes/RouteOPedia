@@ -31,12 +31,22 @@ function MainLayout() {
                 Product
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/admin">
+                Admin
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/customer">
+                Customer
+              </NavLink>
+            </li>
           </ul>
-          <form className="d-flex" role="search">
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <div className="d-flex align-items-center gap-2">
+            <NavLink className="btn btn-primary" to="/login">
+              Login
+            </NavLink>
+          </div>
         </div>
       </div>
     </nav>

@@ -9,12 +9,18 @@ import AllProducts from '../pages/product/productCategory/AllProducts';
 import Electronics from '../pages/product/productCategory/Electronics';
 import Clothing from '../pages/product/productCategory/Clothing';
 import Books from '../pages/product/productCategory/Books';
+import Login from '../pages/auth/Login';
+import AdminPortal from '../pages/admin/AdminPortal';
+import CustomerPortal from '../pages/customer/CustomerPortal';
 
 function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/admin" element={<AdminPortal />} />
+      <Route path="/customer" element={<CustomerPortal />} />
       <Route path="/products" element={<ProductLayout />}>
         <Route index element={<AllProducts />} />
         <Route path="electronics" element={<Electronics />} />

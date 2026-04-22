@@ -26,6 +26,11 @@ function MainLayout() {
                 Contact
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/products">
+                Product
+              </NavLink>
+            </li>
           </ul>
           <form className="d-flex" role="search">
             <button className="btn btn-outline-success" type="submit">

@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import reactLogo from '../assets/react.svg';
-import { getAuthState, logout } from '../utility/authUtility';
+import { getAuthState, hasRoles, logout } from '../utility/authUtility';
 
 function MainLayout() {
   const navigate = useNavigate();
@@ -40,22 +40,35 @@ function MainLayout() {
                 Product
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/admin">
-                Admin
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/customer">
-                Customer
-              </NavLink>
-            </li>
+            {hasRoles('admin') && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/admin">
+                  Admin
+                </NavLink>
+              </li>
+            )}
+            {hasRoles('customer') && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/customer">
+                  Customer
+                </NavLink>
+              </li>
+            )}
           </ul>
           <div className="d-flex align-items-center gap-2">
             {isAuthenticated ? (
-              <button onClick={handleLogout} className="btn btn-outline-danger">
-                Logout
-              </button>
+              <>
+                <span className="me-2 text-secondary small d-flex align-items-center">
+                  <i className="bi bi-person-circle me-1"></i>
+                  Hello, {currentUser?.name}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-outline-danger"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <NavLink className="btn btn-primary" to="/login">
                 Login

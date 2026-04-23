@@ -12,6 +12,7 @@ import Books from '../pages/product/productCategory/Books';
 import Login from '../pages/auth/Login';
 import AdminPortal from '../pages/admin/AdminPortal';
 import CustomerPortal from '../pages/customer/CustomerPortal';
+import ProtectedRoute from './ProtectedRoute';
 
 function AppRouter() {
   return (
@@ -27,7 +28,14 @@ function AppRouter() {
         <Route path="clothing" element={<Clothing />} />
         <Route path="books" element={<Books />} />
       </Route>
-      <Route path="/products/item/:id" element={<ProductDetail />} />
+      <Route
+        path="/products/item/:id"
+        element={
+          <ProtectedRoute>
+            <ProductDetail />
+          </ProtectedRoute>
+        }
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -1,4 +1,23 @@
+import { useNavigate } from 'react-router-dom';
+import { setAuthState } from '../../utility/authUtility';
+
 function Login() {
+  const navigate = useNavigate();
+
+  const handleFakeLogin = (role) => {
+    const users = {
+      admin: { email: 'admin@demo.com', name: 'Admin User', role: 'admin' },
+      customer: {
+        email: 'customer@demo.com',
+        name: 'Customer User',
+        role: 'customer',
+      },
+    };
+
+    setAuthState(true, users[role]);
+    navigate('/');
+  };
+
   return (
     <div className="container p-4">
       <div className="row justify-content-center">
@@ -13,11 +32,17 @@ function Login() {
             </p>
 
             <div className="d-grid gap-3 mb-4">
-              <button className="btn btn-danger btn-lg">
+              <button
+                className="btn btn-danger btn-lg"
+                onClick={() => handleFakeLogin('admin')}
+              >
                 <i className="bi bi-person-gear me-2"></i>
                 Login as Admin
               </button>
-              <button className="btn btn-primary btn-lg">
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={() => handleFakeLogin('customer')}
+              >
                 <i className="bi bi-person-circle me-2"></i>
                 Login as Customer
               </button>
